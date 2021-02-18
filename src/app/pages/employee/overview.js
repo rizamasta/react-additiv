@@ -1,6 +1,6 @@
 import React from "react";
 import { MainBar } from "app/components/app-bar";
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import AppHistory from "app/utils";
 import { RequestGet } from "app/utils/HttpReq";
 export default class EmployeOverview extends React.Component {
@@ -45,6 +45,7 @@ export default class EmployeOverview extends React.Component {
           </tbody>
         </table>
         {error && <Typography color="secondary">{error.message}</Typography>}
+        <Button onClick={() => AppHistory.push("")}>Back to Home</Button>
       </div>
     );
   }
