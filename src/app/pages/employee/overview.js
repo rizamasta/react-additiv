@@ -15,10 +15,12 @@ export default class EmployeOverview extends React.Component {
       this.setState({ name: params.get("name"), error: null });
       RequestGet("assignment/employees/" + params.get("name"))
         .then(r => {
-          this.setState({ data: r.data[1]["direct-subordinates"] });
+          r.data[1]
+            ? this.setState({ data: r.data[1]["direct-subordinates"] })
+            : this.setState({ error: "Doesn't have Subordinates" });
         })
         .catch(e => {
-          this.setState({ error: e });
+          this.setState({ error: e.message });
         });
     } else {
       AppHistory.push("404");
@@ -44,8 +46,14 @@ export default class EmployeOverview extends React.Component {
             })}
           </tbody>
         </table>
-        {error && <Typography color="secondary">{error.message}</Typography>}
-        <Button onClick={() => AppHistory.push("")}>Back to Home</Button>
+        {error && <Typography color="secondary">{error}</Typography>}
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ marginTop: 20 }}
+          onClick={() => AppHistory.push("")}>
+          Back to Home
+        </Button>
       </div>
     );
   }
