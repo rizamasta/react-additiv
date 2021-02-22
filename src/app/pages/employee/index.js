@@ -6,7 +6,6 @@ import { decode } from "app/utils/HttpReq";
 export default class EmployeExplorer extends React.Component {
   constructor(props) {
     super(props);
-    this.submitdata = this.submitdata.bind(this);
     this.state = {
       searchKey: "",
     };
