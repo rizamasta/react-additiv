@@ -12,8 +12,8 @@ export default class EmployeExplorer extends React.Component {
     };
   }
 
-  submitdata(e) {
-    e.preventDefault();
+  submitdata(event) {
+    event.preventDefault();
     const { searchKey } = this.state;
     AppHistory.push("/overview?" + decode({ name: searchKey }));
   }
@@ -24,7 +24,7 @@ export default class EmployeExplorer extends React.Component {
       <div style={{ paddingTop: 80, paddingLeft: 40 }}>
         <MainBar title="Employee Explorer" />
         <Typography variant="h5">Welcome to Employee Explorer</Typography>
-        <form onSubmit={this.submitdata}>
+        <form onSubmit={event => this.submitdata(event)}>
           <Grid
             container
             direction="row"
