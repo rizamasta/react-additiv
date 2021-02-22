@@ -17,7 +17,7 @@ export async function RequestGet(uri, query, config) {
   if (query) {
     query = "?" + decode(query);
   }
-  var url =
+  const url =
     uri.indexOf("https://") === 0 || uri.indexOf("http://") === 0
       ? uri
       : process.env.REACT_APP_API + uri;
@@ -29,7 +29,7 @@ export async function RequestGet(uri, query, config) {
  * @param data is Object or Form Data
  */
 export async function RequestPost(uri, data, config) {
-  var url =
+  const url =
     uri.indexOf("https://") === 0 || uri.indexOf("http://") === 0
       ? uri
       : process.env.REACT_APP_API + uri;
@@ -42,7 +42,7 @@ export async function RequestPost(uri, data, config) {
  * @param data is Object or Form Data
  */
 export async function RequestPut(uri, data, config) {
-  var url =
+  const url =
     uri.indexOf("https://") === 0 || uri.indexOf("http://") === 0
       ? uri
       : process.env.REACT_APP_API + uri;
